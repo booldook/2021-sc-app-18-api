@@ -1,4 +1,4 @@
-// npm i express uuid dotenv cors ejs mysql2 http-errors jsonwebtoken lodash numeral moment morgan
+// npm i express uuid dotenv cors ejs mysql2 http-errors jsonwebtoken lodash numeral moment morgan fs-extra
 
 
 /*************** global init **************/
@@ -7,6 +7,7 @@ const port = process.env.PORT
 const path = require('path')
 const express = require('express')
 const app = express()
+const jwt = require('jsonwebtoken');
 
 
 /*************** server init **************/
@@ -29,9 +30,14 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 
 /*************** router init **************/
-// const Router = require('./routes/')
-
-// app.use('/', Router)
+app.get('/token', (req, res, next) => {
+	let token = jwt.sign({ 
+		userid: 'booldook', 
+		nickname: '불뚝' 
+	}, 
+	process.env.JWT_KEY, { expiresIn: 60 * 60 });
+	res.send(token)
+})
 
 
 /**************** error init **************/
