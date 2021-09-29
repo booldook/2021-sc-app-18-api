@@ -1,0 +1,1 @@
+// npm i express uuid dotenv cors ejs mysql2 http-errors jsonwebtoken
