@@ -1,0 +1,27 @@
+<%- include('../inc/head') %>
+<div class="container my-3">
+	<h1 class="fa-2x mb-3">API KEY 발행</h1>
+	<form action="/dev" method="post">
+		<table class="table border-bottom">
+			<tbody>
+				<tr>
+					<td class="title">아이디</td>
+					<td class="content"><input type="text" name="userid" class="form-control"></td>
+				</tr>
+				<tr>
+					<td class="title">도메인</td>
+					<td class="content"><input type="text" name="domain" class="form-control"></td>
+				</tr>
+				<tr>
+					<td class="title">API Key</td>
+					<td class="content"><input type="text" name="apikey" class="form-control" readonly></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="btn-wrap text-center">
+			<button class="btn btn-primary">API Key 생성</button>
+			<button class="btn btn-success">API 테스트 페이지</button>
+		</div>
+	</form>
+</div> 
+<%- include('../inc/foot') %> 
