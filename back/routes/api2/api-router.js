@@ -7,8 +7,7 @@ const { pool } = require('../../modules/mysql-init')
 router.get('/', async (req, res, next) => {
 	let sql
 	try {
-		console.log(req.cookies)
-		res.cookie('test', '1', { httpOnly: true })
+		res.cookie('test', '3100')
 		console.log(req.cookies)
 		res.json({ success: true, cookieData: req.cookies.test })
 		if(req.cookies) {
