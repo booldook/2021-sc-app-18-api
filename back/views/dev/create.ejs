@@ -6,15 +6,15 @@
 			<tbody>
 				<tr>
 					<td class="title">아이디</td>
-					<td class="content"><input type="text" name="userid" class="form-control" value="booldook"></td>
+					<td class="content"><input type="text" name="userid" class="form-control" value="<%= (data.userid || '') %>"></td>
 				</tr>
 				<tr>
 					<td class="title">도메인</td>
-					<td class="content"><input type="text" name="domain" class="form-control" value="http://127.0.0.1:3000"></td>
+					<td class="content"><input type="text" name="domain" class="form-control" value="<%= (data.domain || '') %>"></td>
 				</tr>
 				<tr>
 					<td class="title">API Key</td>
-					<td class="content"><input type="text" name="apikey" class="form-control" readonly></td>
+					<td class="content"><input type="text" name="apikey" class="form-control" readonly value="<%= (data.apikey || '') %>"></td>
 				</tr>
 			</tbody>
 		</table>
