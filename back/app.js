@@ -7,7 +7,8 @@ const port = process.env.PORT
 const path = require('path')
 const express = require('express')
 const app = express()
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
 
@@ -25,6 +26,7 @@ app.locals.pretty = true
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(cookieParser())
 
 
 /*************** static init **************/
@@ -33,8 +35,10 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 /*************** router init **************/
 const apiRouter = require('./routes/api')
+const api2Router = require('./routes/api2')
 const devRouter = require('./routes/dev')
 app.use('/api', apiRouter)
+app.use('/api2', api2Router)
 app.use('/dev', devRouter)
 
 
