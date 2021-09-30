@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
 		const [rs] = await pool.execute(sql, [userid, apikey, domain])
 		if(rs.length === 1) {	// token발행
 			data = { idx: rs[0].idx, userid: rs[0].userid }
-			token = jwt.sign(data, process.env.JWT_SALT, { expiresIn: '1m' })
+			token = jwt.sign(data, process.env.JWT_SALT, { expiresIn: '10s' })
 			res.status(200).json({ success: true, token })
 		}
 		else {	// Error
