@@ -22,17 +22,11 @@ app.locals.pretty = true
 
 
 /*************** middleware ***************/
-app.use(cors())
+app.use(cors({ origin: true, credentials: true }))
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-/*
-app.get('/', (req, res, next) => {
-	console.log('Cookie:', req.cookies)
-	res.cookie('test', '1').send('test')
-})
-*/
 
 /*************** static init **************/
 app.use('/', express.static(path.join(__dirname, 'public')))
