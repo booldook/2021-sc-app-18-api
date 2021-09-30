@@ -30,12 +30,12 @@ router.post('/', async (req, res, next) => {
 		if(rs.length === 1) {
 			sql = " UPDATE users_api SET domain=? WHERE userid=?"
 			await pool.execute(sql, [domain, userid]) 
-			res.redirect('/api/dev/'+rs[0].idx)
+			res.redirect('/dev/'+rs[0].idx)
 		}
 		else {
 			sql = " INSERT INTO users_api SET userid=?, domain=?, apikey=? "
 			let [rs2] = await pool.execute(sql, [userid, domain, uuid()])
-			res.redirect('/api/dev/'+rs2.insertId)
+			res.redirect('/dev/'+rs2.insertId)
 		}
 	}
 	catch(err) {

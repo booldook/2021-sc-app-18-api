@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const apiRouter = require('./api-router')
-const devRouter = require('./dev-router')
+const signRouter = require('./sign-router')
 
 router.use('/', apiRouter)
-router.use('/dev', devRouter)
+router.use('/sign', signRouter)
 
 module.exports = router
